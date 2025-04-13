@@ -1,0 +1,37 @@
+@import "../../../../../../assets/styles/abstracts/mixins";
+@import "../../../../../../assets/styles/base/variables";
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+
+  ::ng-deep {
+    .p-panelmenu.p-component {
+      display: flex;
+      flex-direction: column;
+    }
+    .p-panelmenu-header-content {
+      border: none;
+      text-align: center;
+      padding: 8px;
+      background: transparent;
+      & > span:has(i) {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .p-panelmenu-content {
+      border: none;
+      background-color: $black;
+      li {
+        text-align: center;
+        color: $headerLink;
+      }
+    }
+  }
+
+  .p-panelmenu-content {
+    background-color: $black !important;
+  }
+}

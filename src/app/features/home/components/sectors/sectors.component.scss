@@ -1,0 +1,124 @@
+@import "../../../../../assets/styles/abstracts/functions";
+@import "../../../../../assets/styles/abstracts/mixins";
+@import "../../../../../assets/styles/base/_variables";
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: toRem(20px);
+  padding-top: toRem(50px);
+  .sectors-header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    h2 {
+      @include resFont(20, 24, 600);
+      color: $textColorHeadingOnLight;
+      margin: 0;
+    }
+    p {
+      @include resFont(14, 18, 400);
+      color: $textColorHeadingOnLight;
+      margin: 0;
+    }
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.card-content {
+  position: relative;
+  background: linear-gradient(0deg, #ffffff, #ffffff),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: left;
+  height: toRem(322px);
+  flex: 0 0 toRem(204);
+  transition: flex-basis 0.3s ease-in-out, z-index 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  h2,
+  .btn-more {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover,
+  &.expanded {
+    flex-basis: toRem(500);
+    z-index: 2;
+
+    img {
+      opacity: 1;
+    }
+
+    h2,
+    .btn-more {
+      opacity: 1;
+    }
+
+    .hero-title {
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    z-index: 999;
+    color: $black;
+    @include resFont(20, 29, 400);
+  }
+
+  img {
+    // opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+  }
+
+  .hero-title {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: toRem(43);
+    height: toRem(30);
+    @include resFont(10, 12, 400);
+    border: 1px solid $pageColorActive;
+    border-radius: toRem(8);
+    color: $PrimaryOnLight;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 999;
+    &:hover {
+      background-color: #1b2e59;
+      color: #fff;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}

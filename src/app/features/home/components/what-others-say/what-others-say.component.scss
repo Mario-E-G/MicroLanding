@@ -1,0 +1,43 @@
+@import "../../../../../assets/styles/base/variables";
+@import "../../../../../assets/styles/abstracts/mixins";
+
+.what-other-say {
+  padding-block: 54px;
+  .container {
+    display: flex;
+    gap: 148px;
+    @media (max-width: 1200px) {
+      gap: 96px;
+    }
+    @include respond("desktop") {
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+    .info {
+      width: 340px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        font-size: 24px;
+        font-weight: 600;
+        color: $textColorHeadingOnLight;
+        margin: 0;
+      }
+    }
+    .slider-container {
+      flex: 1;
+      height: 424px;
+      display: flex;
+      align-items: center;
+      background-color: $headerLink;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      .slider {
+        max-width: 100%;
+      }
+    }
+  }
+}

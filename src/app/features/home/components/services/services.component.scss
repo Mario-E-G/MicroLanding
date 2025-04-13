@@ -1,0 +1,82 @@
+@import "../../../../../assets/styles/base/variables";
+@import "../../../../../assets/styles/abstracts/mixins";
+
+.services {
+  padding-block: 54px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+    .services-header {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      h3 {
+        @include resFont(20, 24, 600);
+        color: $textColorHeadingOnLight;
+        margin: 0;
+      }
+      p {
+        @include resFont(14, 18, 400);
+        color: $textColorHeadingOnLight;
+        margin: 0;
+      }
+    }
+    .services-content {
+      .service-boxs {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        @include respond("tablet") {
+          flex-wrap: wrap;
+        }
+        .box {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          align-items: center;
+          @include respond("tablet") {
+            flex-basis: 100%;
+          }
+          img {
+            width: 80px;
+            height: 80px;
+          }
+          .info {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            h3 {
+              font-size: 20px;
+              color: textColorHeadingOnLight;
+              font-weight: 600;
+              margin: 0;
+            }
+            p {
+              font-size: 14px;
+              color: $listItems;
+              font-weight: 400;
+              text-align: center;
+              margin: 0;
+            }
+          }
+        }
+        .divider {
+          display: block;
+          width: 2px;
+          height: 38px;
+          background-color: $pageColorActive;
+          @include respond("tablet") {
+            display: none;
+          }
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

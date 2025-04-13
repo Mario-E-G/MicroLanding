@@ -1,0 +1,16 @@
+<div class="main-container">
+  <div class="sectors-header">
+    <h2 class="header">{{ header }}</h2>
+    <p class="description">{{ description }}</p>
+  </div>
+
+  <div class="card-container">
+    @for (card of cards; track card; let i = $index) {
+    <div class="card-content">
+      <h2>{{ card.title }}</h2>
+      <button class="btn-more">{{ card.buttonText }}</button>
+      <img [src]="card.imagePath" alt="{{ card.title }}" />
+    </div>
+    }
+  </div>
+</div>

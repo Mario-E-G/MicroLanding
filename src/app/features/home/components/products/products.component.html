@@ -1,0 +1,39 @@
+<section class="container products-section">
+  <h2 class="section-title">المنتجات</h2>
+  <p class="section-description">
+    نقدم حلولًا تقنية متكاملة لدعم الشركات في مختلف الصناعات، لمساعدتها على
+    تحقيق النجاح والتحول الرقمي بكفاءة.
+  </p>
+
+  <div class="products-grid">
+    @for (product of products; track product; let i = $index) {
+    <ng-container>
+      <!-- First Product Full Width -->
+      @if (i === 0) {
+      <div class="product-card full-width">
+        <div class="product-full">
+          <img [src]="product.image" [alt]="product.title" />
+          <div class="product-info">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.description }}</p>
+            <button class="btn-more">المزيد</button>
+          </div>
+        </div>
+      </div>
+      }
+      <!-- Rest of Products -->
+      @if (i !== 0) {
+
+      <div class="product-card">
+        <img [src]="product.image" [alt]="product.title" />
+        <div class="product-info">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.description }}</p>
+          <button class="btn-more">المزيد</button>
+        </div>
+      </div>
+      }
+    </ng-container>
+    }
+  </div>
+</section>

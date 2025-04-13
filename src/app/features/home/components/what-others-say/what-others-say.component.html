@@ -1,0 +1,24 @@
+<section class="what-other-say">
+  <div class="container">
+    <div class="info">
+      <h3>ماذا يقول عملاؤنا</h3>
+    </div>
+    <div class="slider-container">
+      <div class="silder w-100">
+        <app-what-slider class="w-100 d-block">
+          @for (item of sliderboxs; track $index) {
+          <swiper-slide>
+            <app-slider-box
+              class="w-100 d-block"
+              [boxTitle]="item.title"
+              [boxSubTitle]="item.subTitle"
+              [boxImg]="item.imgUrl"
+              [boxDescription]="item.description"
+            ></app-slider-box>
+          </swiper-slide>
+          }
+        </app-what-slider>
+      </div>
+    </div>
+  </div>
+</section>

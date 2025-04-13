@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "assets/styles/main.scss";
+@import "assets/styles/base/variables";
+@import "primeicons/primeicons.css";
+.container {
+  width: 100%;
+  margin: auto;
+}
+
+.swiper-container {
+  width: 100%;
+  margin: auto;
+  // @include swiper-responsive-container($dashboard-container-padding);
+  // @include swiper-responsive-container2($dashboard-container-padding);
+}
+
+body {
+  background-color: #fff;
+}
+
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400; /* Regular */
+}
+
+:lang(ar) .arrow {
+  transform: rotate(180deg);
+}
+:lang(ar) .change-dir {
+  flex-direction: row-reverse;
+}
+.error-border {
+  border: 1px solid #e79ba3 !important;
+}
+
+html[lang="ar"] {
+  .rotate-in-ar {
+    transform: rotate(180deg);
+  }
+
+  .change-ar-flex {
+    flex-direction: row-reverse;
+  }
+}
+
+.show_mobile {
+  display: none !important;
+  @media (max-width: 991.98px) {
+    display: flex !important;
+  }
+}
+
+.hide_mobile {
+  display: flex !important;
+  @media (max-width: 991.98px) {
+    display: none !important;
+  }
+}

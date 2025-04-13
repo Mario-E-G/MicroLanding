@@ -1,0 +1,12 @@
+<section class="clients">
+   <div class="container">
+    <app-client-slider>
+        @for (item of clients; track $index) {
+            <swiper-slide>
+                <img [src]="item.clientImg" [alt]="item.title">
+            </swiper-slide>
+        }
+        
+       </app-client-slider>
+   </div>
+</section>

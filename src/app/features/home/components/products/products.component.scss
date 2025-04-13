@@ -1,0 +1,133 @@
+@import "../../../../../assets/styles/abstracts/functions";
+@import "../../../../../assets/styles/abstracts/mixins";
+@import "../../../../../assets/styles/base/_variables";
+
+.products-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  h2 {
+    @include resFont(20, 24, 600);
+    color: $textColorHeadingOnLight;
+    margin: 0;
+  }
+  p {
+    @include resFont(14, 18, 400);
+    color: $textColorHeadingOnLight;
+    margin: 0;
+  }
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: toRem(24);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.product-full {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+.product-card {
+  background: $headerLink;
+  border-radius: toRem(16);
+  padding: toRem(16);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: toRem(23);
+  flex-wrap: wrap;
+  align-items: center;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    width: 100%;
+    max-width: toRem(200); // adjustable size
+    flex-shrink: 0;
+    margin-bottom: toRem(12);
+  }
+
+  .product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: toRem(16);
+    text-align: right;
+
+    h3 {
+      @include resFont(20, 26, 400);
+      color: $textColorHeadingOnLight;
+      width: 100%;
+    }
+
+    p {
+      @include resFont(12, 14, 400);
+      color: $black;
+      margin: 0;
+      width: 100%;
+    }
+
+    .btn-more {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: toRem(43);
+      height: toRem(30);
+      @include resFont(10, 12, 400);
+      border: 1px solid $pageColorActive;
+      border-radius: toRem(8);
+      color: $PrimaryOnLight;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1b2e59;
+        color: #fff;
+      }
+    }
+  }
+
+  &.full-width {
+    grid-column: 1 / -1;
+
+    img {
+      max-width: toRem(400);
+    }
+
+    .product-info {
+      h3 {
+        @include resFont(24, 30, 600);
+      }
+
+      p {
+        @include resFont(14, 16, 400);
+      }
+    }
+  }
+
+  &.half-width {
+    text-align: right;
+    img {
+      max-width: toRem(180); // slightly smaller image
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    @media (max-width: 767px) {
+      grid-column: 1 / -1;
+    }
+  }
+}

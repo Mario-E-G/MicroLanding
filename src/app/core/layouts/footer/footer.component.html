@@ -1,0 +1,36 @@
+<footer>
+   <div class="container">
+    <div class="main-footer">
+        <div class="footer-logo">
+            <div class="img-logo">
+                <img [src]='logosec.logoUrl' alt="footer-logo.svg" />
+            </div>
+            <p class="desc">{{logosec.description}}</p>
+            <ul class="icons">
+                @for (item of icons; track $index) {
+                <li>
+                    <a href=""><img [src]="item.iconUrl" [alt]="item.label" /></a>
+                </li>
+                }
+            </ul>
+        </div>
+        <div class="footer-info">
+            @for (item of footerInfoList; track $index) {
+             <div class="footer-box">
+                <h4>{{item.title}}</h4>
+                <ul class="links">
+                    @for (link of item.links; track $index) {
+                    <li>
+                        <a href="">{{link.linkTit}}</a>
+                    </li>
+                    }
+                </ul>
+             </div>
+            }
+        </div>
+    </div>
+    <div class="right">
+        <p> حقوق النشر محفوظة © شركة ميكروتيك 2025 </p>
+    </div>
+   </div>
+</footer>

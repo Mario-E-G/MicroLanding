@@ -1,0 +1,109 @@
+@import "../../../../assets/styles/base/variables";
+@import "../../../../assets/styles/abstracts/functions";
+@import "../../../../assets/styles/abstracts/mixins";
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #0c0c1d;
+  color: white;
+  gap: 1.5rem;
+
+  .logo {
+    width: toRem(200px);
+    @include resFont(8px, 24px, 700);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .items {
+    nav ul {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+
+      li {
+        a,
+        button {
+          color: white;
+          text-decoration: none;
+          background: none;
+          border: none;
+          font-size: 0.9rem;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .cta {
+          background-color: #fff;
+          color: #0c0c1d;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .price-request {
+    button {
+      height: toRem(50px);
+      border: 1px solid $pageColorActive;
+      background-color: $white;
+      color: $pageColorActive;
+      border-radius: toRem(7.1px);
+      outline: none;
+    }
+  }
+}
+
+::ng-deep {
+  .p-menubar {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    .p-menuitem-text {
+      color: $headerLink;
+    }
+
+    .p-menuitem.p-highlight > .p-menuitem-content {
+      background-color: transparent;
+    }
+    .p-menuitem > .p-menuitem-content .p-menuitem-link .p-submenu-icon {
+      color: $headerLink;
+    }
+    .p-menuitem {
+      p-menubarsub {
+        .p-menuitem-text {
+          color: #000;
+        }
+      }
+    }
+
+    .p-menubar-root-list
+      > .p-menuitem:not(.p-highlight):not(.p-disabled)
+      > .p-menuitem-content:hover {
+      background-color: transparent;
+    }
+  }
+  .p-button {
+    background-color: transparent;
+    border: none;
+  }
+
+  .p-sidebar-header,
+  .p-sidebar-content {
+    background-color: $black !important;
+  }
+}

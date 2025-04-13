@@ -1,0 +1,58 @@
+<header class="container navbar">
+  <div class="logo">
+    <img src="assets/images/Microtec logo.svg" alt="Microtec logo" />
+  </div>
+
+  @if (innerWidth <= 992) {
+  <div class="mobile-res">
+    <div class="mobile">
+      <p-button (onClick)="sidebarVisible = true">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.33325 6.6665L22.6666 6.66651"
+            stroke="#EAEDFB"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M5.33325 16L26.6666 16"
+            stroke="#EAEDFB"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9.33325 25.3335L22.6666 25.3335"
+            stroke="#EAEDFB"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </p-button>
+    </div>
+    <app-mobile-header
+      [sidebarVisible]="sidebarVisible"
+      (hideSidebar)="sidebarVisible = false"
+    ></app-mobile-header>
+  </div>
+  }@else{
+  <div class="items">
+    <p-menubar [model]="items" />
+  </div>
+
+  }
+
+  <div class="price-request">
+    <button>
+      {{ "price_request" | translate }}
+    </button>
+  </div>
+</header>

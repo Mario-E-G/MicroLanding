@@ -1,0 +1,187 @@
+@use "sass:map";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "functions";
+@import "../base/variables";
+
+@mixin respond($size) {
+  @if $size == "mobile" {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $size == "tablet" {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == "desktop" {
+    @media (max-width: 992px) {
+      @content;
+    }
+  }
+}
+
+@mixin resFont($min, $max, $weight) {
+  font-weight: $weight;
+  font-size: dynamic-size($min, $max);
+}
+
+@mixin responsive-container($container-pad) {
+  @each $breakpoint, $padding in $container-pad {
+    @media screen and (max-width: #{$breakpoint}) {
+
+      $excluded-breakpoints: ($sm-desktop, $tablet, $mobile);
+
+      @if index($excluded-breakpoints, $breakpoint) {
+        max-width: $breakpoint; // No subtraction
+      } @else {
+        max-width: calc($breakpoint - 15.5rem); // Apply 15.5rem reduction
+      }
+      padding: 0 $padding;
+    }
+  }
+
+  @if $dashboard-xxxl-desktop != null {
+    @media screen and (min-width: #{$dashboard-xxxl-desktop + 1}) {
+      max-width: calc($dashboard-xxxl-desktop - 15.5rem);
+      padding: 0 map-get($container-pad, $dashboard-xxxl-desktop);
+    }
+  }
+}
+@mixin responsive-dashboard-container($container-pad) {
+  @each $breakpoint, $padding in $container-pad {
+    @media screen and (max-width: #{$breakpoint}) {
+      max-width: 100%;
+      padding: 0 $padding;
+    }
+  }
+
+  @if $dashboard-xxxl-desktop != null {
+    @media screen and (min-width: #{$dashboard-xxxl-desktop + 1}) {
+      max-width: calc($dashboard-xxxl-desktop );
+      padding: 0 map-get($container-pad, $dashboard-xxxl-desktop);
+    }
+  }
+}
+
+@mixin swiper-responsive-container($container-pad) {
+  @each $breakpoint, $padding in $container-pad {
+    @media screen and (max-width: #{$breakpoint}) {
+      max-width: #{($breakpoint - 300px)};
+    // max-width: 100%;
+    }
+  }
+}
+@mixin swiper-responsive-container2($container-pad) {
+  @each $breakpoint, $padding in $container-pad {
+    @media screen and (max-width: #{$breakpoint}) {
+     // max-width: #{($breakpoint - 300px)};
+     max-width: 100%;
+    }
+  }
+}
+
+@mixin button(
+  $padding,
+  $color: #fff,
+  $background: $primary-Blue-500,
+  $border-color: $primary-Blue-500,
+  $border-radius: 8px
+) {
+  display: inline-block;
+  padding: $padding;
+  color: $color;
+  background-color: $background;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-direction: row-reverse;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  //   &:hover {
+  //     background-color: darken($background, 10%);
+  //     border-color: darken($background, 10%);
+  //   }
+
+  //   &:active {
+  //     background-color: darken($background, 15%);
+  //     border-color: darken($background, 15%);
+  //   }
+
+  //   &:disabled {
+  //     background-color: lighten($background, 20%);
+  //     border-color: lighten($background, 20%);
+  //     color: lighten($color, 40%);
+  //     cursor: not-allowed;
+  //     opacity: 0.7;
+  //   }
+}
+
+// Size-specific button mixins
+@mixin button-small($color: #fff, $background: #007bff, $border-color: #fff) {
+  @include button(toRem(8px) toRem(16px), $color, $background, $border-color);
+}
+
+@mixin button-medium($color: #fff, $background: #007bff) {
+  @include button(toRem(12px) toRem(20px), $color, $background);
+}
+
+@mixin button-medium-blur(
+  $color: #fff,
+  $background: rgba(#fff, 0.2),
+  $border-color: #fff
+) {
+  @include button(toRem(12px) toRem(20px), $color, $background, $border-color);
+}
+
+@mixin button-large($color: #fff, $background: #007bff) {
+  @include button(toRem(16px) toRem(24px), $color, $background);
+}
+
+@mixin colored-circle($width, $height, $color) {
+  width: $width;
+  height: $height;
+  border-radius: 50%;
+  background-color: $color;
+}
+
+@mixin rtl-postion-html($property,$ltr-value,$rtl-value){
+  #{$property} : $ltr-value !important;
+
+ ::ng-deep [dir="rtl"] & {
+    #{$property}: $rtl-value !important;
+  }
+}
+// :host([dir="rtl"]) .slider-content {
+//   left: 0 !important;
+//   right: auto !important;
+// }
+
+@mixin rtl-postion($property, $ltr-value, $rtl-value) {
+  #{$property}: $ltr-value !important;
+
+  ::ng-deep {
+    html[dir="rtl"] & {
+      #{$property}: $rtl-value !important;
+    }
+  }
+}
+
+
+
+// @mixin rtl-swap($property, $ltr-value) {
+//   #{$property}: $ltr-value;
+
+//   [dir="rtl"] & {
+//     @if str-index($property, 'left') {
+//       #{$property}: replace($property, 'left', 'right');
+//     } @else if str-index($property, 'right') {
+//       #{$property}: replace($property, 'right', 'left');
+//     }
+//   }
+// }

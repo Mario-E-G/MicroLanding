@@ -1,0 +1,24 @@
+@import "../../../../../../../assets/styles/abstracts/mixins";
+@import "../../../../../../../assets/styles/base/variables";
+.swiper-container {
+  max-width: 100%;
+  position: relative;
+}
+.swiper-pagination {
+  position: absolute !important;
+  top: 228px;
+  z-index: 12357456456456;
+  @include respond("tablet") {
+    display: none;
+  }
+  ::ng-deep span.swiper-pagination-bullet {
+    border: 1px solid white;
+    opacity: 1;
+    background-color: $primary-Blue-slider;
+    width: 15px;
+    height: 15px;
+  }
+  ::ng-deep span.swiper-pagination-bullet-active {
+    background-color: $pageColorActive;
+  }
+}

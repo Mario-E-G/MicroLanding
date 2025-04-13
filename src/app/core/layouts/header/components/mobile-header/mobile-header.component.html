@@ -1,0 +1,46 @@
+<p-sidebar
+  [(visible)]="sidebarVisible"
+  position="right"
+  (onHide)="hideSidebar.emit('')"
+>
+  <div class="sidebar-container">
+    <p-panelMenu [model]="items" styleClass="w-full md:w-20rem">
+      <ng-template pTemplate="item" let-item>
+        @if(item.route){
+        <ng-container>
+          <a
+            [routerLink]="item.route"
+            class="flex align-items-center cursor-pointer text-color px-3 py-2"
+          >
+            <span [class]="item.icon"></span>
+            <span class="ml-2 text-color">{{ item.label }}</span>
+          </a>
+        </ng-container>
+        } @else {
+        <ng-template #urlRef>
+          <a
+            *ngIf="item.url; else noLink"
+            [href]="item.url"
+            class="d-flex justify-content-start align-items-center cursor-pointer text-color px-3 py-2"
+          >
+            <span [class]="item.icon"></span>
+            <span class="ml-2">{{ item.label }}</span>
+          </a>
+          <ng-template #noLink>
+            <span
+              class="d-flex justify-content-start align-items-center cursor-pointer text-color px-3 py-2"
+            >
+              <span [class]="item.icon"></span>
+              <span class="ml-2">{{ item.label }}</span>
+              <i
+                *ngIf="item.items"
+                class="pi pi-angle-down text-primary ml-auto"
+              ></i>
+            </span>
+          </ng-template>
+        </ng-template>
+        }
+      </ng-template>
+    </p-panelMenu>
+  </div>
+</p-sidebar>

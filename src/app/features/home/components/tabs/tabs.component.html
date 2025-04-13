@@ -1,0 +1,29 @@
+<div class="container tabs-container">
+  <div class="tab-header">
+    <h2 class="text-center">
+      أعمالك مبسطة,إدارة كل ما تحتاجه في نظام
+      <span class="hightlighted">واحد</span>
+    </h2>
+  </div>
+  <p-tabView [activeIndex]="4" class="custom-tabs">
+    @for(tab of tabs; track $index){
+    <ng-container>
+      <p-tabPanel [header]="tab.title" [rightIcon]="tab.icon">
+        <div class="tab-content">
+          <div class="screenshot">
+            <img [src]="tab.imagePath" [alt]="tab.title" />
+          </div>
+          <div class="features">
+            <h3>{{ tab.contentTitle }}</h3>
+            <ul>
+              @for(feature of tab.features; track $index){
+              <li><img [src]="tab.correct" alt=""> {{ feature }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      </p-tabPanel>
+    </ng-container>
+    }
+  </p-tabView>
+</div>

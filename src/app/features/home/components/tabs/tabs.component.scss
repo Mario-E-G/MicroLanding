@@ -1,0 +1,136 @@
+@import "../../../../../assets/styles/abstracts/functions";
+@import "../../../../../assets/styles/abstracts/mixins";
+@import "../../../../../assets/styles/base/_variables";
+
+.tab-header {
+  h2 {
+    @include resFont(24px, 36px, 700);
+    color: $black;
+    span {
+      color: $pageColorActive;
+      @include resFont(24px, 36px, 700);
+    }
+  }
+}
+
+::ng-deep {
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    border: none;
+    gap: toRem(8px);
+    align-items: center;
+    justify-content: center;
+    background-color: $notActive;
+    margin: 0px;
+    border-radius: toRem(16px);
+    .p-tabview-title {
+      color: $textColorHeadingOnLight;
+    }
+
+    .p-tabview-right-icon {
+      color: $pageColorActive;
+    }
+  }
+
+  //   .p-tabview-nav-link {
+  //     background-color: $pageColorActive;
+  //   }
+}
+.custom-tabs ::ng-deep .p-tabview-nav {
+  justify-content: center;
+  border: none;
+  gap: 1rem;
+}
+
+.custom-tabs ::ng-deep .p-tabview-nav li {
+  background: $notActive;
+  border-radius: toRem(16px);
+  padding: 0px;
+  color: #003049;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &.p-highlight {
+    // background: $pageColorActive;
+    color: white;
+    font-weight: bold;
+    border-radius: toRem(16px);
+    .p-tabview-nav-link {
+      background-color: $pageColorActive;
+      .p-tabview-title {
+        color: $headerLink;
+      }
+      .p-tabview-right-icon {
+        color: $headerLink;
+      }
+    }
+  }
+
+  .pi {
+    margin-left: 0.5rem;
+  }
+}
+
+.tab-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 2rem;
+
+  .features {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: toRem(17px);
+
+    h3 {
+      margin: 0px;
+      color: $textColorHeadingOnLight;
+      @include resFont(24px, 36px, 700);
+    }
+
+    ul {
+      margin: 0px;
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: toRem(17px);
+
+      li {
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: toRem(17px);
+        color: $listItems;
+        i {
+          color: #00a7b3;
+          font-size: 1.2rem;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .screenshot {
+    flex: 1;
+    img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .tab-content {
+    flex-direction: column;
+    text-align: center;
+
+    .features,
+    .screenshot {
+      width: 100%;
+    }
+  }
+}

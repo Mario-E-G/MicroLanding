@@ -1,0 +1,40 @@
+@import "../../../../../../../assets/styles/abstracts/mixins";
+@import "../../../../../../../assets/styles/base/variables";
+.silder-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 345px;
+  padding: 16px;
+  border: 2px solid $primary-Blue-border;
+  border-radius: 8px;
+  background-color: white;
+  .more-info {
+    display: flex;
+    gap: 16px;
+    .info {
+      display: flex;
+      flex-direction: column;
+      /*  align-items: center; */
+      justify-content: center;
+      h3 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: $textColorHeadingOnLight;
+      }
+      h6 {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 400;
+        color: $listItems;
+      }
+    }
+  }
+  p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: $textColorHeadingOnLight;
+  }
+}
