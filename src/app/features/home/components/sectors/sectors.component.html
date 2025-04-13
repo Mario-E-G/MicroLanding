@@ -7,9 +7,14 @@
   <div class="card-container">
     @for (card of cards; track card; let i = $index) {
     <div class="card-content">
-      <h2>{{ card.title }}</h2>
-      <button class="btn-more">{{ card.buttonText }}</button>
-      <img [src]="card.imagePath" alt="{{ card.title }}" />
+      <div class="details">
+        <h2>{{ card.title }}</h2>
+        <button class="btn-more">{{ card.buttonText }}</button>
+      </div>
+      <div
+        class="hero"
+        [style.backgroundImage]="'url(/' + card.imagePath + ')'"
+      ></div>
     </div>
     }
   </div>

@@ -49,6 +49,19 @@
   align-items: flex-end;
   justify-content: flex-end;
 
+  .details {
+    position: absolute;
+    bottom: toRem(50px);
+    left: toRem(50px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    h2 {
+      color: $headerLink;
+    }
+  }
+
   h2,
   .btn-more {
     opacity: 0;
@@ -59,10 +72,6 @@
   &.expanded {
     flex-basis: toRem(500);
     z-index: 2;
-
-    img {
-      opacity: 1;
-    }
 
     h2,
     .btn-more {
@@ -76,34 +85,42 @@
 
   h2 {
     z-index: 999;
-    color: $black;
     @include resFont(20, 29, 400);
   }
 
-  img {
-    // opacity: 0.5;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    transition: opacity 0.3s ease;
-  }
+  // img {
+  //   // opacity: 0.5;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   border-radius: 4px;
+  //   transition: opacity 0.3s ease;
+  // }
 
   .hero-title {
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
+  .hero {
+    border-radius: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+
   .btn-more {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: toRem(43);
-    height: toRem(30);
+    // width: toRem(43);
+    // height: toRem(30);
     @include resFont(10, 12, 400);
     border: 1px solid $pageColorActive;
     border-radius: toRem(8);
@@ -111,10 +128,13 @@
     background-color: transparent;
     cursor: pointer;
     z-index: 999;
+    color: $white;
     &:hover {
       background-color: #1b2e59;
-      color: #fff;
+      color: $white;
     }
+    padding: toRem(16px);
+    border: 1px solid $headerLink;
   }
 
   @media (max-width: 768px) {
